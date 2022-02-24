@@ -44,16 +44,20 @@ return packer.startup(function(use)
 
   use "hrsh7th/nvim-cmp" -- Completion plugin
   use "hrsh7th/cmp-nvim-lsp" -- cmp lsp plugin
+  use "hrsh7th/cmp-nvim-lua" -- cmp lua
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline opts
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use {"ms-jpq/chadtree", branch = "chad", run = "python3 -m chadtree deps"}
 
   -- snippets
   use "L3MON4D3/LuaSnip" -- snip engine
   use "rafamadriz/friendly-snippets"
 
-
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+  use "nvim-telescope/telescope-media-files.nvim"
 
 
   -- Automatically set up your configuration after cloning packer.nvim

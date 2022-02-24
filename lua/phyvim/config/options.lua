@@ -2,7 +2,9 @@ local M = {}
 
 M.load_options = function()
   local options = {
+	encoding = "utf-8",
 	mouse = "a",
+	foldexpr = "",
 	hidden = true,
 	number = true,
 	hlsearch = false,
@@ -10,21 +12,24 @@ M.load_options = function()
 	tabstop = 4,
 	softtabstop = 4,
 	smartindent = true,
-	completeopt = { "menuone", "menu" },
-	wildmode = { "longest", "list", "full" },
+	completeopt = { "menuone", "noselect" },
+	wildignorecase = true,
+	--wildmode = { "longest", "list", "full" },
 	ignorecase=true,
 	conceallevel = 0,
 	concealcursor = "vin",
 	cursorline = true,
 	cursorlineopt = "number",
-	pumheight = 20,
+	pumheight = 15,
 	scrolloff = 8,
 	sidescrolloff = 8,
 	updatetime = 300,
 	undofile = true,
 	splitbelow = true,
 	splitright = true,
+	swapfile = false,
 	signcolumn = "yes",
+	showmode = false,
 }
 
 vim.opt.shortmess:append "c"
@@ -44,4 +49,3 @@ vim.cmd [[set formatoptions-=cro]]
 end
 
 return M
-
