@@ -4,6 +4,7 @@ local kmap = vim.api.nvim_set_keymap
 
 vim.g.mapleader = ";"
 vim.g.maplocalleader = ";"
+vim.g.maplocalleader = ";"
 
 -- Window navigation
 kmap("n", "<C-h>", "<C-w>h", opts)
@@ -17,7 +18,12 @@ kmap("n", "<Tab>l", ":vertical resize +4<cr>", opts)
 kmap("n", "<Tab>j", ":resize +4<cr>", opts)
 kmap("n", "<Tab>k", ":resize -4<cr>", opts)
 
-kmap("n", "<F1>", ":CHADopen<cr>", opts)
+-- Navigate buffers
+kmap("n", "<S-l>", ":bnext<CR>", opts)
+kmap("n", "<S-h>", ":bprevious<CR>", opts)
+
+kmap("n", "<F1>", ":NvimTreeToggle<cr>", opts)
+kmap("i", "<F1>", "<esc>:NvimTreeToggle<cr>", opts)
 kmap("n", "<F4>", ":! compwrite && clear && g++ %<cr> | :vsp |terminal ./a.out<inp.txt <cr>", opts)
 
 kmap("v", "<A-j>", ":m .+1<CR>==", opts)

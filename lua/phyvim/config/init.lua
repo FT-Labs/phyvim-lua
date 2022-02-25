@@ -5,7 +5,9 @@ function M:load()
   require "phyvim.config.keymaps"
   options.load_options()
 
-  local colorscheme = "onedarker"
+  vim.g.tokyonight_style = "night"
+  local colorscheme = "tokyonight"
+
 
 	local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 	if not status_ok then

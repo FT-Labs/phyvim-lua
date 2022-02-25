@@ -36,7 +36,9 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "lunarvim/colorschemes"
+  use "lunarvim/onedarker.nvim"
+  use ({ "catppuccin/nvim", as = "catppuccin" })
+  use 'folke/tokyonight.nvim'
 
   -- lsp config
   use "neovim/nvim-lspconfig"
@@ -49,7 +51,14 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline opts
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use {"ms-jpq/chadtree", branch = "chad", run = "python3 -m chadtree deps"}
+	use "windwp/nvim-autopairs" -- Autopairs
+	use "numToStr/Comment.nvim" -- Comment
+	use "JoosepAlviste/nvim-ts-context-commentstring" -- String ts comment
+	use "lewis6991/gitsigns.nvim" -- gitsigns
+	use "kyazdani42/nvim-web-devicons" -- tree webicons
+	use "kyazdani42/nvim-tree.lua" -- nvim tree
+	use "akinsho/bufferline.nvim" -- top buffer line
+	use "moll/vim-bbye"
 
   -- snippets
   use "L3MON4D3/LuaSnip" -- snip engine
@@ -58,6 +67,12 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-media-files.nvim"
+
+  -- Treesitter
+  use {
+	  "nvim-treesitter/nvim-treesitter",
+	  run = ":TSUpdate"
+  }
 
 
   -- Automatically set up your configuration after cloning packer.nvim

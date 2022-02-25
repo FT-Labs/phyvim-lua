@@ -99,3 +99,5 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.cpp :%s/\s\+$//e
 autocmd BufWritePre * %s/\s\+$//e
 autocmd BufWritepre * %s/\n\+\%$//e
+"Lua set tabspace to 2
+autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2
