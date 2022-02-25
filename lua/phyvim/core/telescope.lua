@@ -1,13 +1,8 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-  return
-end
-
-telescope.load_extension('media_files')
+local M = {}
 
 local actions = require "telescope.actions"
 
-telescope.setup {
+local opts = {
   defaults = {
 
     prompt_prefix = " ",
@@ -88,7 +83,7 @@ telescope.setup {
       set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
       pickers = {
         find_files = {
-          find_command = { "fd", "--type=file", "--hidden", "--smart-case" },
+          find_command = { "fd", "--type=file", "--hidden" },
         },
         live_grep = {
           --@usage don't include the filename in the search results
@@ -104,3 +99,18 @@ telescope.setup {
 	  },
   }
 }
+
+function M.setup()
+	local status_ok, telescope = pcall(require, "telescope")
+	if not status_ok then
+		return
+	end
+
+	telescope.load_extension('media_files')
+
+
+	telescope.setup(opts)
+
+end
+
+return M

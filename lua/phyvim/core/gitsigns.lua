@@ -1,9 +1,7 @@
 local M = {}
 
 local opts = {
-    active = true,
-    on_config_done = nil,
-    opts = {
+    set = {
       signs = {
         add = {
           hl = "GitSignsAdd",
@@ -78,7 +76,7 @@ local opts = {
 M.setup = function()
   local gitsigns = require "gitsigns"
 
-  gitsigns.setup(opts)
+  gitsigns.setup(opts.set)
 
 end
 

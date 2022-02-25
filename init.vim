@@ -88,8 +88,9 @@ endfunction
 
 "Java configs
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
 autocmd Filetype java set makeprg=javac\ -d\ %:~:h:s?src?bin?\ %
-autocmd BufNewFile *.java exe "normal opublic class " . expand('%:t:r') . "\n{\n}\<Esc>1Go\<CR>\<CR>\<Esc>1G"
+ autocmd BufNewFile *.java exe "normal opublic class " . expand('%:t:r') . "\n{\n}\<Esc>1Go\<CR>\<CR>\<Esc>1G"
 autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 autocmd BufNewFile *.{py} call <SID>insert_py()
 autocmd BufNewFile *.{sh} call <SID>insert_sh()

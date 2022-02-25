@@ -5,3 +5,4 @@ end
 
 require("phyvim.lsp.lsp-installer")
 require("phyvim.lsp.handlers").setup()
+require("phyvim.lsp.null-ls").setup()

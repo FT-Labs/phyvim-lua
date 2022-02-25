@@ -16,34 +16,33 @@ local check_backspace = function()
 end
 
 --   פּ ﯟ   some other good icons
-local kind_icons = {
-  Text = "",
-  Method = "m",
-  Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
-  Interface = "",
-  Module = "",
-  Property = "",
-  Unit = "",
-  Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = "",
+local kind_icons =  {
+	Class = " ",
+		Color = " ",
+		Constant = "ﲀ ",
+		Constructor = " ",
+		Enum = "練",
+		EnumMember = " ",
+		Event = " ",
+		Field = " ",
+		File = "",
+		Folder = " ",
+		Function = " ",
+		Interface = "ﰮ ",
+		Keyword = " ",
+		Method = " ",
+		Module = " ",
+		Operator = "",
+		Property = " ",
+		Reference = " ",
+		Snippet = " ",
+		Struct = " ",
+		Text = " ",
+		TypeParameter = " ",
+		Unit = "塞",
+		Value = " ",
+		Variable = " ",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
   snippet = {
@@ -53,7 +52,7 @@ cmp.setup {
   },
   mapping = {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
-	["<C-j>"] = cmp.mapping.select_next_item(),
+		["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-w>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-s>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -97,7 +96,6 @@ cmp.setup {
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
@@ -125,7 +123,7 @@ cmp.setup {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
   experimental = {
-    ghost_text = false,
+    ghost_text = true,
     native_menu = false,
   },
 }

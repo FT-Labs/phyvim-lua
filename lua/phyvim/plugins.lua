@@ -39,6 +39,7 @@ return packer.startup(function(use)
   use "lunarvim/onedarker.nvim"
   use ({ "catppuccin/nvim", as = "catppuccin" })
   use 'folke/tokyonight.nvim'
+	use 'lewis6991/impatient.nvim' -- fast startup
 
   -- lsp config
   use "neovim/nvim-lspconfig"
@@ -59,6 +60,23 @@ return packer.startup(function(use)
 	use "kyazdani42/nvim-tree.lua" -- nvim tree
 	use "akinsho/bufferline.nvim" -- top buffer line
 	use "moll/vim-bbye"
+	use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+	use "ahmedkhalf/project.nvim"
+	use "nvim-lualine/lualine.nvim"
+	use "kosayoda/nvim-lightbulb"
+
+
+
+		-- Cursorhold fix
+	use {
+		"antoinemadec/FixCursorHold.nvim",
+		event = "BufRead",
+		config = function()
+			vim.g.cursorhold_updatetime = 100
+		end,
+	}
+
+
 
   -- snippets
   use "L3MON4D3/LuaSnip" -- snip engine

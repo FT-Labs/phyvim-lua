@@ -1,103 +1,107 @@
 local M = {}
 
 local opts = {
-    setup = {
-      disable_netrw = true,
-      hijack_netrw = true,
-      open_on_setup = false,
-      ignore_ft_on_setup = {
-        "startify",
-        "dashboard",
-        "alpha",
-      },
-      update_to_buf_dir = {
-        enable = true,
-        auto_open = true,
-      },
-      auto_close = false,
-      open_on_tab = false,
-      hijack_cursor = false,
-      update_cwd = false,
-      diagnostics = {
-        enable = true,
-        icons = {
-          hint = "",
-          info = "",
-          warning = "",
-          error = "",
-        },
-      },
-      update_focused_file = {
-        enable = true,
-        update_cwd = true,
-        ignore_list = {},
-      },
-      system_open = {
-        cmd = nil,
-        args = {},
-      },
-      git = {
-        enable = true,
-        ignore = false,
-        timeout = 200,
-      },
-      view = {
-        width = 30,
-        height = 30,
-        hide_root_folder = false,
-        side = "left",
-        auto_resize = false,
-        mappings = {
-          custom_only = false,
-          list = {},
-        },
-        number = false,
-        relativenumber = false,
-        signcolumn = "yes",
-      },
-      filters = {
-        dotfiles = false,
-        custom = { "node_modules", ".cache" },
-      },
-      trash = {
-        cmd = "trash",
-        require_confirm = true,
-      },
-    },
-    show_icons = {
-      git = 1,
-      folders = 1,
-      files = 1,
-      folder_arrows = 1,
-      tree_width = 30,
-    },
-    quit_on_open = 0,
-    git_hl = 1,
-    disable_window_picker = 0,
-    root_folder_modifier = ":t",
-    icons = {
-      default = "",
-      symlink = "",
-      git = {
-        unstaged = "",
-        staged = "S",
-        unmerged = "",
-        renamed = "➜",
-        deleted = "",
-        untracked = "U",
-        ignored = "◌",
-      },
-      folder = {
-        default = "",
-        open = "",
-        empty = "",
-        empty_open = "",
-        symlink = "",
-      },
-    },
-  }
+
+	setup = {
+		disable_netrw = true,
+		hijack_netrw = true,
+		open_on_setup = false,
+		ignore_ft_on_setup = {
+			"startify",
+			"dashboard",
+			"alpha",
+		},
+		update_to_buf_dir = {
+			enable = true,
+			auto_open = true,
+		},
+		auto_close = false,
+		open_on_tab = false,
+		hijack_cursor = false,
+		update_cwd = false,
+		diagnostics = {
+			enable = true,
+			icons = {
+				hint = "",
+				info = "",
+				warning = "",
+				error = "",
+			},
+		},
+		update_focused_file = {
+			enable = true,
+			update_cwd = true,
+			ignore_list = {},
+		},
+		system_open = {
+			cmd = nil,
+			args = {},
+		},
+		git = {
+			enable = true,
+			ignore = false,
+			timeout = 200,
+		},
+		view = {
+			width = 30,
+			height = 30,
+			hide_root_folder = false,
+			side = "left",
+			auto_resize = false,
+			mappings = {
+				custom_only = false,
+				list = {},
+			},
+			number = false,
+			relativenumber = false,
+			signcolumn = "yes",
+		},
+		filters = {
+			dotfiles = false,
+			custom = { "node_modules", ".cache" },
+		},
+		trash = {
+			cmd = "trash",
+			require_confirm = true,
+		},
+	},
+	show_icons = {
+		git = 1,
+		folders = 1,
+		files = 1,
+		folder_arrows = 1,
+		tree_width = 30,
+	},
+	quit_on_open = 0,
+	git_hl = 1,
+	disable_window_picker = 0,
+	root_folder_modifier = ":t",
+	icons = {
+		default = "",
+		symlink = "",
+		git = {
+			unstaged = "",
+			staged = "S",
+			unmerged = "",
+			renamed = "➜",
+			deleted = "",
+			untracked = "U",
+			ignored = "◌",
+		},
+		folder = {
+			default = "",
+			open = "",
+			empty = "",
+			empty_open = "",
+			symlink = "",
+		},
+	},
+}
 
 function M.setup()
+
+	vim.g.nvim_tree_indent_markers = 1 -- indentation on left tree
+
 	local status_ok, nvim_tree = pcall(require, "nvim-tree")
 	if not status_ok then
 		return
